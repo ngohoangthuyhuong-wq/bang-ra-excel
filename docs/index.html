@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bảng ra Excel</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <main class="desk">
+    <article class="ledger" id="ledger">
+      <div class="spine" aria-hidden="true"></div>
+      <div class="page">
+        <header class="mast">
+          <h1>Bảng ra Excel</h1>
+          <p>Mở link này trên máy nào cũng được. Thả PDF scan hoặc ảnh, chữ tiếng Việt được đọc ngay trong trình duyệt, rồi tải file Excel. File không gửi lên mạng.</p>
+        </header>
+
+        <form id="form">
+          <label class="drop" id="drop">
+            <input id="files" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.bmp,.tif,.tiff,.gif,application/pdf,image/*" multiple>
+            <span class="beam" aria-hidden="true"></span>
+            <span class="drop-copy">
+              <strong>Thả PDF hoặc ảnh vào tờ này</strong>
+              <span>JPG, PNG, WEBP, TIFF, PDF. Nhiều file một lúc. Ảnh thẳng và đủ sáng thì dấu tiếng Việt khỏi rơi.</span>
+            </span>
+          </label>
+          <ul class="file-list" id="file-list" hidden></ul>
+          <div class="actions">
+            <button type="submit" class="go" id="go">Đọc và xuất Excel</button>
+            <button type="button" class="download" id="download" hidden>Tải file Excel</button>
+          </div>
+        </form>
+
+        <p class="status" id="status" role="status">Chọn file rồi bấm Đọc và xuất Excel. Lần đầu trình duyệt tải bộ đọc tiếng Việt.</p>
+        <div class="meter" id="meter" hidden><span id="meter-bar"></span></div>
+        <p class="note" id="note" hidden></p>
+        <section class="result" id="result" hidden>
+          <div class="tabs" id="tabs" role="tablist"></div>
+          <div class="grid-wrap" id="grid"></div>
+        </section>
+      </div>
+    </article>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
